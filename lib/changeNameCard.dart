@@ -4,8 +4,14 @@ import 'bgImage.dart';
 
 class changeNameCard extends StatelessWidget {
   const changeNameCard({
-    super.key,
-  });
+    Key? key,
+    required this.myText,
+    required TextEditingController nameController,
+  })  : _nameController = nameController,
+        super(key: key);
+
+  final String myText;
+  final TextEditingController _nameController;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +22,7 @@ class changeNameCard extends StatelessWidget {
           height: 20,
         ),
         Text(
-          "Ams Portal - A life Changer",
+          myText,
           style: TextStyle(
             color: Color.fromARGB(255, 221, 12, 217),
             fontSize: 25,
@@ -29,6 +35,7 @@ class changeNameCard extends StatelessWidget {
           height: 20,
         ),
         TextField(
+          controller: _nameController,
           keyboardType: TextInputType.number,
           decoration: InputDecoration(
             border: OutlineInputBorder(),

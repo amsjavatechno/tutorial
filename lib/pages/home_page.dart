@@ -2,7 +2,20 @@ import 'package:awesomeapp/changeNameCard.dart';
 import 'package:awesomeapp/drawer.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  TextEditingController _nameController = TextEditingController();
+  var myText = "Change Me";
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,16 +27,19 @@ class HomePage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Card(
-              child: changeNameCard(),
+              child: changeNameCard(
+                  myText: myText, nameController: _nameController),
             ),
           ),
         ),
       ),
       drawer: MyDrawer(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        mini: true,
-        child: Icon(Icons.edit),
+        onPressed: () {
+          myText = _nameController.text;
+          setState(() {});
+        },
+        child: Icon(Icons.refresh),
       ),
     );
   }
