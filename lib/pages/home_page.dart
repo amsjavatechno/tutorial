@@ -1,5 +1,6 @@
 // import 'package:awesomeapp/changeNameCard.dart';
 import 'package:awesomeapp/drawer.dart';
+import 'package:awesomeapp/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -34,6 +35,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("AMS PORTAL"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Constants.prefs.setBool("loggedIn", false);
+                Navigator.pushReplacementNamed(context, "/login");
+              },
+              icon: Icon(Icons.exit_to_app))
+        ],
       ),
       body: Center(
         child: Padding(
