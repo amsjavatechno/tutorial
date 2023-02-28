@@ -1,6 +1,7 @@
-import 'package:awesomeapp/changeNameCard.dart';
+// import 'package:awesomeapp/changeNameCard.dart';
 import 'package:awesomeapp/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,10 +27,7 @@ class _HomePageState extends State<HomePage> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: SingleChildScrollView(
-            child: Card(
-              child: changeNameCard(
-                  myText: myText, nameController: _nameController),
-            ),
+            child: Card(),
           ),
         ),
       ),
