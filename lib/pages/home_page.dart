@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController _nameController = TextEditingController();
-  var myText = "Change Me";
+  var myText = "Change me with Refresh";
 
   @override
   void initState() {
